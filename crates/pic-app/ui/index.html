@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoloPic</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header id="topbar">
+    <div class="brand">SoloPic <span data-i18n="subtitle"></span></div>
+    <div id="folder-path" class="folder-path" title="" data-i18n="folderNone"></div>
+    <button id="btn-pick" class="primary" data-i18n="pick"></button>
+    <button id="btn-reload" class="ghost" disabled data-i18n-title="reloadTitle">⟳</button>
+    <select id="lang-sel" title="Language / 语言">
+      <option value="zh">中文</option>
+      <option value="en">English</option>
+      <option value="ja">日本語</option>
+      <option value="ko">한국어</option>
+      <option value="fr">Français</option>
+      <option value="de">Deutsch</option>
+      <option value="es">Español</option>
+      <option value="pt">Português</option>
+    </select>
+  </header>
+
+  <main id="layout">
+    <aside id="filepane">
+      <div class="filebar">
+        <label class="checkline"><input type="checkbox" id="chk-all" checked /><span data-i18n="selectAll"></span></label>
+        <span id="sel-count" class="dim">0 / 0</span>
+      </div>
+      <div id="filegrid" class="filegrid">
+        <div class="empty"><span data-i18n="emptyFolder1"></span><br /><span class="dim" data-i18n="emptyFolder2"></span></div>
+      </div>
+    </aside>
+
+    <section id="workpane">
+      <nav id="tabs">
+        <button data-tab="crop" class="tab active" data-i18n="tabCrop"></button>
+        <button data-tab="adjust" class="tab" data-i18n="tabAdjust"></button>
+        <button data-tab="enhance" class="tab" data-i18n="tabEnhance"></button>
+        <button data-tab="rename" class="tab" data-i18n="tabRename"></button>
+      </nav>
+
+      <div id="panel-crop" class="panel active">
+        <div class="controls">
+          <div class="ctl-grid4">
+            <label><span data-i18n="cropLeft"></span> <input type="number" id="crop-left" min="0" value="0" /> px</label>
+            <label><span data-i18n="cropRight"></span> <input type="number" id="crop-right" min="0" value="0" /> px</label>
+            <label><span data-i18n="cropTop"></span> <input type="number" id="crop-top" min="0" value="0" /> px</label>
+            <label><span data-i18n="cropBottom"></span> <input type="number" id="crop-bottom" min="0" value="0" /> px</label>
+          </div>
+          <div class="hint" data-i18n="cropHint"></div>
+          <div id="crop-size-hint" class="hint strong"></div>
+        </div>
+      </div>
+
+      <div id="panel-adjust" class="panel">
+        <div class="controls">
+          <label class="slider-line"><span class="slider-name" data-i18n="brightness"></span> <input type="range" id="adj-brightness" min="0" max="200" value="100" /><span id="adj-brightness-v">100%</span></label>
+          <label class="slider-line"><span class="slider-name" data-i18n="contrast"></span> <input type="range" id="adj-contrast" min="0" max="200" value="100" /><span id="adj-contrast-v">100%</span></label>
+          <label class="slider-line"><span class="slider-name" data-i18n="saturation"></span> <input type="range" id="adj-saturation" min="0" max="200" value="100" /><span id="adj-saturation-v">100%</span></label>
+          <label class="slider-line"><span class="slider-name" data-i18n="sharpness"></span> <input type="range" id="adj-sharpness" min="0" max="300" value="100" /><span id="adj-sharpness-v">100%</span></label>
+          <label class="checkline"><input type="checkbox" id="adj-grayscale" /><span data-i18n="grayscale"></span></label>
+          <button id="adj-reset" class="ghost small" data-i18n="reset"></button>
+        </div>
+      </div>
+
+      <div id="panel-enhance" class="panel">
+        <div class="controls">
+          <div class="radio-line">
+            <label><input type="radio" name="enh-mode" value="color" checked /><span data-i18n="modeColor"></span><span class="dim" data-i18n="modeColorNote"></span></label>
+            <label><input type="radio" name="enh-mode" value="gray" /><span data-i18n="modeGray"></span></label>
+            <label><input type="radio" name="enh-mode" value="bw" /><span data-i18n="modeBw"></span><span class="dim" data-i18n="modeBwNote"></span></label>
+          </div>
+          <div class="checkline">
+            <label class="checkline"><input type="checkbox" id="enh-deskew" checked /><span data-i18n="deskew"></span></label>
+            <input type="number" id="enh-deskew-max" min="1" max="45" value="20" class="deg-input" /> °
+          </div>
+          <label class="checkline"><input type="checkbox" id="enh-denoise" checked /><span data-i18n="denoise"></span></label>
+          <label class="checkline"><input type="checkbox" id="enh-onlydoc" /><span data-i18n="onlyDoc"></span></label>
+          <div class="hint" data-i18n="enhHint"></div>
+        </div>
+      </div>
+
+      <div id="panel-rename" class="panel">
+        <div class="controls">
+          <div class="hint" data-i18n-html="renHint"></div>
+          <textarea id="ren-text" rows="9" data-i18n-ph="renPlaceholder"></textarea>
+          <div class="btnline">
+            <button id="ren-import" class="ghost" data-i18n="renImport"></button>
+            <button id="ren-preview" class="primary" data-i18n="renPreview"></button>
+            <button id="ren-exec" class="danger" data-i18n="renExec"></button>
+            <button id="ren-undo" class="ghost" style="display:none" data-i18n="renUndo"></button>
+          </div>
+        </div>
+      </div>
+
+      <div id="preview-zone" class="preview-zone">
+        <div class="preview-box"><div class="preview-title" data-i18n="pvBefore"></div><div class="preview-img-wrap"><img id="pv-before" alt="" /><div id="crop-overlay"></div></div></div>
+        <div class="preview-box"><div class="preview-title" data-i18n="pvAfter"></div><div class="preview-img-wrap"><img id="pv-after" alt="" /></div></div>
+      </div>
+
+      <div id="output-zone" class="output-zone">
+        <span class="out-label" data-i18n="outLabel"></span>
+        <label><input type="radio" name="outmode" value="subdir" checked /><code>pic-output</code> <span data-i18n="outSubdir"></span></label>
+        <label><input type="radio" name="outmode" value="overwrite" /><span data-i18n="outOverwrite"></span></label>
+        <button id="btn-run" class="primary big" disabled data-i18n="run"></button>
+      </div>
+
+      <div id="report" class="report"></div>
+    </section>
+  </main>
+
+  <div id="busy" class="busy" style="display:none"><div class="spinner"></div><div id="busy-text"></div></div>
+
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

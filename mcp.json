@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "pic": {
+      "command": "D:\\code\\pic\\target\\release\\pic-mcp.exe",
+      "args": []
+    }
+  }
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoloPic — Batch image processing, done in a flash</title>
+  <meta name="description" content="Free, offline batch image tool: edge crop, mapping rename, adjust and smart document enhance. GUI + CLI + MCP server. Windows portable download." />
+  <link rel="icon" href="favicon.ico" />
+  <meta property="og:title" content="SoloPic — Batch image processing, done in a flash" />
+  <meta property="og:description" content="Free, offline batch image tool: edge crop, mapping rename, adjust and smart document enhance. GUI + CLI + MCP server." />
+  <meta property="og:image" content="https://solopic.doaipm.com/assets/og.jpg" />
+  <meta property="og:url" content="https://solopic.doaipm.com/" />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand"><img src="assets/logo.png" alt="SoloPic logo" />SoloPic</div>
+      <select id="lang-sel" aria-label="Language">
+        <option value="en">English</option>
+        <option value="zh">中文</option>
+        <option value="ja">日本語</option>
+        <option value="ko">한국어</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+        <option value="es">Español</option>
+        <option value="pt">Português</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img class="hero-logo" src="assets/logo.png" alt="" />
+      <h1 data-i18n="tagline"></h1>
+      <p class="sub" data-i18n="sub"></p>
+      <div class="cta">
+        <a class="btn-download" href="download/SoloPic-1.0.0-windows-x64-portable.zip" data-i18n="download"></a>
+        <div class="dl-note" data-i18n="downloadNote"></div>
+      </div>
+      <div class="shot-wrap"><img src="assets/screenshot-en.jpg" alt="SoloPic screenshot" /></div>
+    </section>
+
+    <section class="features">
+      <h2 data-i18n="featuresTitle"></h2>
+      <div class="grid">
+        <div class="card"><h3 data-i18n="f1t"></h3><p data-i18n="f1d"></p></div>
+        <div class="card"><h3 data-i18n="f2t"></h3><p data-i18n="f2d"></p></div>
+        <div class="card"><h3 data-i18n="f3t"></h3><p data-i18n="f3d"></p></div>
+        <div class="card"><h3 data-i18n="f4t"></h3><p data-i18n="f4d"></p></div>
+      </div>
+    </section>
+
+    <section class="shells">
+      <h2 data-i18n="shellsTitle"></h2>
+      <div class="grid3">
+        <div class="card">
+          <h3 data-i18n="shellGuiT"></h3>
+          <p data-i18n="shellGuiD"></p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="shellCliT"></h3>
+          <p data-i18n="shellCliD"></p>
+          <pre>pic crop --left 100 --bottom 57 D:\photos
+pic rename D:\photos --map list.txt -x
+pic enhance --mode bw D:\scans</pre>
+        </div>
+        <div class="card">
+          <h3 data-i18n="shellMcpT"></h3>
+          <p data-i18n="shellMcpD"></p>
+          <pre>{ "mcpServers": { "pic": {
+    "command": "pic-mcp.exe" } } }</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="download" id="download">
+      <h2 data-i18n="dlTitle"></h2>
+      <a class="btn-download" href="download/SoloPic-1.0.0-windows-x64-portable.zip"><span data-i18n="dlWin"></span> · v1.0.0</a>
+      <p class="dim" data-i18n="dlContains"></p>
+      <p class="dim" data-i18n="dlOther"></p>
+    </section>
+  </main>
+
+  <footer>
+    <div><span data-i18n="footFamily"></span> <a href="https://doaipm.com" target="_blank" rel="noopener">SoloMD</a></div>
+    <div class="dim" data-i18n="footFree"></div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="site.js"></script>
+</body>
+</html>
