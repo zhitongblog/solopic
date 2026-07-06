@@ -4,6 +4,13 @@
 
 **多语言**：图形界面支持中文 / English / 日本語 / 한국어 / Français / Deutsch / Español / Português（右上角切换，默认跟随系统语言）；CLI 与处理报告支持中/英（跟随系统，或用环境变量 `PIC_LANG=zh|en` 指定）。
 
+## 下载
+
+[Releases](https://github.com/zhitongblog/solopic/releases) 提供：
+
+- **Windows**：x64 便携版 zip（GUI + CLI + MCP Server，解压即用）
+- **macOS**：universal DMG（Intel / Apple Silicon 通用，GUI）+ CLI/MCP Server 压缩包。未做 Apple 公证，首次打开请右键 →「打开」
+
 ## 四大功能
 
 | 功能 | 说明 |
@@ -23,8 +30,13 @@
 cargo build --release
 ```
 
-产物在 `target/release/`：`pic.exe`（CLI）、`pic-app.exe`（GUI）、`pic-mcp.exe`（MCP Server）。
-打安装包：`cargo install tauri-cli --version "^2" && cargo tauri build`（在 `crates/pic-app` 下）。
+产物在 `target/release/`：`pic.exe`（CLI）、`pic-app.exe`（GUI）、`pic-mcp.exe`（MCP Server）；macOS / Linux 上无 `.exe` 后缀。
+打安装包（在 `crates/pic-app` 下，需 `cargo install tauri-cli --version "^2"`）：
+
+```
+cargo tauri build                                              # Windows：NSIS 安装包
+cargo tauri build --target universal-apple-darwin --bundles app,dmg   # macOS：universal .app + DMG
+```
 
 ## 图形界面
 

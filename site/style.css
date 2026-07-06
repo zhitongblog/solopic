@@ -36,6 +36,8 @@ main { max-width: 1060px; margin: 0 auto; padding: 0 20px; }
   box-shadow: 0 6px 18px rgba(30, 107, 117, 0.35); transition: transform 0.12s, background 0.12s;
 }
 .btn-download:hover { background: var(--teal-dark); transform: translateY(-2px); }
+.cta .btn-download + .btn-download, .download .btn-download + .btn-download { margin-left: 12px; }
+@media (max-width: 560px) { .cta .btn-download + .btn-download, .download .btn-download + .btn-download { margin-left: 0; margin-top: 10px; } }
 .dl-note { margin-top: 10px; color: var(--dim); font-size: 14px; }
 .shot-wrap { max-width: 960px; margin: 0 auto; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 24px 60px rgba(20, 80, 90, 0.18); }
 .shot-wrap img { width: 100%; display: block; }

@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "PicFlow",
+  "productName": "SoloPic",
   "version": "1.0.0",
-  "identifier": "com.guangtoutong.picflow",
+  "identifier": "com.guangtoutong.solopic",
   "build": {
     "frontendDist": "./ui"
   },
@@ -10,7 +10,7 @@
     "withGlobalTauri": true,
     "windows": [
       {
-        "title": "PicFlow · 批量图像处理",
+        "title": "SoloPic · 批量图像处理",
         "width": 1180,
         "height": 800,
         "minWidth": 720,
@@ -30,6 +30,7 @@
       "icons/32x32.png",
       "icons/128x128.png",
       "icons/128x128@2x.png",
+      "icons/icon.icns",
       "icons/icon.ico"
     ]
   }
