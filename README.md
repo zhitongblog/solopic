@@ -9,7 +9,7 @@
 [Releases](https://github.com/zhitongblog/solopic/releases) 提供：
 
 - **Windows**：x64 便携版 zip（GUI + CLI + MCP Server，解压即用）
-- **macOS**：universal DMG（Intel / Apple Silicon 通用，GUI）+ CLI/MCP Server 压缩包。未做 Apple 公证，首次打开请右键 →「打开」
+- **macOS**：universal DMG（Intel / Apple Silicon 通用，GUI）+ CLI/MCP Server 压缩包，均已签名并通过 Apple 公证，下载即用
 
 ## 四大功能
 
